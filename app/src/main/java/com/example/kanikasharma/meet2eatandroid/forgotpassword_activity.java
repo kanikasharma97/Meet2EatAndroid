@@ -61,7 +61,7 @@ public class forgotpassword_activity extends AppCompatActivity {
                     if(code==200){
                         Intent myintent=new Intent(forgotpassword_activity.this,Securityquestion.class);
                         myintent.putExtra("email", txtemail.getText().toString());
-                       
+
 
                         InputStream responsebody=myConnection.getInputStream();
                         InputStreamReader responseBodyReader = new InputStreamReader(responsebody, "UTF-8");
