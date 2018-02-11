@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.kanikasharma.meet2eatandroid.Homescreen_activity"
+    android:background="@color/Tomato">
+
+      <android.support.v7.widget.CardView
+          android:layout_width="match_parent"
+          android:layout_height="match_parent"
+          android:layout_margin="20dp"
+          app:cardCornerRadius="4dp">
+
+          <RelativeLayout
+              android:layout_width="400dp"
+              android:layout_height="350dp"
+              android:layout_marginTop="290dp">
+
+
+             <ImageView
+                 android:layout_width="match_parent"
+                 android:layout_height="match_parent"
+                 android:background="@drawable/homepage"/>
+          </RelativeLayout>
+
+          <RelativeLayout
+              android:layout_width="400dp"
+              android:layout_height="300dp">
+
+              <ImageView
+                  android:layout_width="match_parent"
+                  android:layout_height="match_parent"
+                  android:background="@drawable/dining" />
+
+          </RelativeLayout>
+
+      </android.support.v7.widget.CardView>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</LinearLayout>

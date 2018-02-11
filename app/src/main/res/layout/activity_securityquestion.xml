@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.kanikasharma.meet2eatandroid.Securityquestion"
+    android:background="@drawable/gradient_background"
+    android:orientation="vertical">
+
+
+
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:id="@+id/imageView3"
+            android:layout_width="match_parent"
+            android:layout_marginTop="40dp"
+            android:layout_height="150dp"
+            app:srcCompat="@drawable/lock" />
+    </RelativeLayout>
+
+    <EditText
+        android:id="@+id/txt_newpsw"
+        android:layout_width="350dp"
+        android:layout_height="wrap_content"
+        android:background="@drawable/edittextstyle"
+        android:layout_marginTop="60dp"
+        android:hint="New Password"
+        android:layout_gravity="center_horizontal"/>
+
+    <EditText
+        android:id="@+id/txt_confirmpsw"
+        android:layout_width="350dp"
+        android:layout_height="wrap_content"
+        android:background="@drawable/edittextstyle"
+        android:layout_marginTop="30dp"
+        android:hint="Confirm Password"
+        android:layout_gravity="center_horizontal"
+        />
+
+    <TextView
+        android:id="@+id/txt_securityquestion"
+        android:layout_width="350dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:background="@drawable/edittextstyle"
+        android:layout_marginTop="40dp"
+        android:text="TextView"/>
+
+
+
+
+    <EditText
+        android:id="@+id/txt_secureans"
+        android:layout_width="350dp"
+        android:layout_height="wrap_content"
+        android:background="@drawable/edittextstyle"
+        android:layout_marginTop="40dp"
+        android:hint="Security Answer"
+        android:layout_gravity="center_horizontal"/>
+
+    <Button
+        android:id="@+id/btn_submit"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:background="@drawable/custombuttons"
+        android:textColor="@color/Tomato"
+        android:text="SUBMIT"
+        android:layout_gravity="center"
+        android:layout_marginTop="40dp"
+        />
+
+
+
+</LinearLayout>
