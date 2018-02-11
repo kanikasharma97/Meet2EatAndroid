@@ -39,7 +39,6 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"
                 android:layout_marginTop="10dp"
-                android:background="@drawable/edittextstyle"
                 android:hint="Email Address" />
 
             <EditText
@@ -48,7 +47,6 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"
                 android:layout_marginTop="20dp"
-                android:background="@drawable/edittextstyle"
                 android:drawableLeft="@drawable/ic_action_psw"
                 android:ems="10"
                 android:hint="Password"
@@ -60,7 +58,6 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"
                 android:layout_marginTop="20dp"
-                android:background="@drawable/edittextstyle"
                 android:drawableLeft="@drawable/ic_action_psw"
                 android:ems="10"
                 android:hint="Confirm Password"
@@ -71,7 +68,6 @@
                 android:layout_height="50dp"
                 android:layout_gravity="center_horizontal"
                 android:layout_marginTop="30dp"
-                android:background="@drawable/edittextstyle"
                 android:entries="@array/Question_arrays"
                 android:prompt="@string/Question_prompt"
                 android:id="@+id/spinner_security_question"></Spinner>
@@ -82,7 +78,6 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"
                 android:layout_marginTop="30dp"
-                android:background="@drawable/edittextstyle"
                 android:ems="10"
                 android:hint="Security Answer"
                 android:inputType="text" />
@@ -103,7 +98,6 @@
                 android:layout_height="50dp"
                 android:layout_gravity="center_horizontal"
                 android:layout_marginTop="20dp"
-                android:background="@drawable/edittextstyle"
                 android:entries="@array/Type"
                 android:id="@+id/spinner_type"></Spinner>
 

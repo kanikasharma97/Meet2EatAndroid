@@ -116,11 +116,11 @@ public class LoginActivity extends AppCompatActivity {
                         }
                         if(type.equals("user")) {
                             Intent myIntent = new Intent(LoginActivity.this,
-                                    user_navigation.class);
+                                    user.class);
                             startActivity(myIntent);
                         }else if(type.equals("blogger")) {
                             Intent myIntent=new Intent(LoginActivity.this,
-                                    navigation_foodblogger.class);
+                                    foodblogger.class);
                         }
 
 

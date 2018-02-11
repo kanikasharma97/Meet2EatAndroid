@@ -4,9 +4,6 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/whitesmoke"
-    app:layout_behavior="@string/appbar_scrolling_view_behavior"
-    tools:context="com.example.kanikasharma.meet2eatandroid.user_navigation"
-    tools:showIn="@layout/app_bar_user_navigation">
+    tools:context="com.example.kanikasharma.meet2eatandroid.foodblogger">
 
 </android.support.constraint.ConstraintLayout>
