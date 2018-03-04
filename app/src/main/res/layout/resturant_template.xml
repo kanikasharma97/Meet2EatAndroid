@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="horizontal"
+    android:baselineAligned="false"
+    android:background="@drawable/roundedborder">
+    
+    <RelativeLayout
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:background="@color/white"
+       >
+
+
+        <TextView
+            android:id="@+id/restaurantName"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:text="Name"
+            android:textColor="@color/black"
+            android:textSize="25sp"
+            android:textStyle="bold"
+            android:textAllCaps="true"/>
+
+        <TextView
+            android:id="@+id/restaurantType"
+            android:layout_width="wrap_content"
+            android:layout_height="30dp"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_below="@+id/restaurantName"
+            android:text="Type"
+            android:textSize="20sp"
+            android:textColor="@color/black"/>
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_below="@+id/restaurantType"
+            android:layout_marginTop="16dp"
+            android:background="@drawable/ic_action_location"
+            android:id="@+id/imageView7" />
+
+        <TextView
+            android:id="@+id/restaurantAddress"
+            android:layout_width="match_parent"
+            android:layout_height="69dp"
+            android:layout_alignTop="@+id/imageView7"
+            android:layout_toEndOf="@+id/imageView7"
+            android:layout_toRightOf="@+id/imageView7"
+            android:text="Address"
+            android:textColor="@color/gray"
+            android:textSize="20sp" />
+        
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="0dp"
+        android:layout_height="165dp"
+        android:layout_weight="1"
+        android:background="@color/white"
+
+        >
+
+        <TextView
+            android:id="@+id/restaurantTimings"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@+id/imageView4"
+            android:layout_marginLeft="9dp"
+            android:layout_marginStart="9dp"
+            android:layout_toEndOf="@+id/imageView4"
+            android:layout_toRightOf="@+id/imageView4"
+            android:text="Timings"
+            android:textColor="@color/black"
+            android:textSize="15sp" />
+
+        <ImageView
+            android:id="@+id/imageView4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:background="@drawable/ic_action_timming" />
+
+        <TextView
+            android:id="@+id/restaurantAvl"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignLeft="@+id/restaurantCapacity"
+            android:layout_alignStart="@+id/restaurantCapacity"
+            android:layout_below="@+id/imageView4"
+            android:layout_marginTop="17dp"
+            android:text="Availaibility"
+            android:textColor="@color/black" />
+
+        <ImageView
+            android:id="@+id/imageView5"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_above="@+id/imageView6"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:background="@drawable/ic_action_avl" />
+
+        <TextView
+            android:id="@+id/restaurantCapacity"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignLeft="@+id/restaurantTimings"
+            android:layout_alignStart="@+id/restaurantTimings"
+            android:layout_alignTop="@+id/imageView6"
+            android:text="capacity"
+            android:textColor="@color/black" />
+
+        <ImageView
+            android:id="@+id/imageView6"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_below="@+id/restaurantAvl"
+            android:layout_marginTop="11dp"
+            android:background="@drawable/ic_action_people" />
+
+    </RelativeLayout>
+
+</LinearLayout>

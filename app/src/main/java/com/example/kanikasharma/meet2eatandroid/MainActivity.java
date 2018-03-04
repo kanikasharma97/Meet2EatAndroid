@@ -88,7 +88,7 @@ public class MainActivity extends AppCompatActivity {
                 Spinner securtiyQuestion =  (Spinner)findViewById(R.id.spinner_security_question);
                 Spinner type = (Spinner)findViewById(R.id.spinner_type);
 
-                HashMap <String, String> mapping = new HashMap<String, String>();
+                HashMap <String, String> mapping = new HashMap<>();
                 mapping.put("Food Blogger", "blogger");
                 mapping.put("User", "user");
                 mapping.put("Restaurant", "restaurant");
@@ -100,7 +100,7 @@ public class MainActivity extends AppCompatActivity {
                         + "&type=" + mapping.get(type.getSelectedItem().toString());
 
 
-                HttpURLConnection myConnection = Network.post("/registration", data);
+                HttpURLConnection myConnection = Network.post("/registration", data, null);
 
                 try {
 

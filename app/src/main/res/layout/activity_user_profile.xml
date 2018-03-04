@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.kanikasharma.meet2eatandroid.user_profile"
+    android:background="@color/white">
+
+    <android.support.v7.widget.Toolbar
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:id="@+id/toolbar"
+        android:background="@color/colorPrimary"
+        app:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar">
+    </android.support.v7.widget.Toolbar>
+
+
+    <TextView
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/txt_name"
+        android:layout_alignLeft="@+id/txt_email"
+        android:layout_alignStart="@+id/txt_email"
+        android:layout_marginBottom="41dp"
+        android:text="Email"
+        android:textColor="@color/black" />;
+
+    <EditText
+        android:id="@+id/txt_email"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/toolbar"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginLeft="24dp"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="96dp"
+        android:hint=""
+        android:textColorHighlight="@color/black" />
+
+    <TextView
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/txt_name"
+        android:layout_alignStart="@+id/txt_name"
+        android:layout_below="@+id/txt_email"
+        android:layout_marginTop="20dp"
+        android:text="Name"
+        android:textColor="@color/black"/>
+
+
+    <EditText
+        android:id="@+id/txt_name"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/txt_email"
+        android:layout_alignStart="@+id/txt_email"
+        android:layout_below="@+id/txt_email"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="41dp"
+        android:textColorHighlight="@color/black" />
+
+    <TextView
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/txt_ContactNo"
+        android:layout_alignStart="@+id/txt_ContactNo"
+        android:layout_below="@+id/txt_name"
+        android:layout_marginTop="22dp"
+        android:text="Contact Number"
+        android:textColor="@color/black" />
+
+    <EditText
+        android:id="@+id/txt_ContactNo"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/txt_name"
+        android:layout_alignStart="@+id/txt_name"
+        android:layout_below="@+id/txt_name"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="48dp"
+        android:textColorHighlight="@color/black" />
+
+    <TextView
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/txt_Age"
+        android:layout_alignStart="@+id/txt_Age"
+        android:layout_below="@+id/txt_ContactNo"
+        android:layout_marginTop="22dp"
+        android:text="Age"
+        android:textColor="@color/black"/>
+
+
+    <EditText
+        android:id="@+id/txt_Age"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/txt_ContactNo"
+        android:layout_alignStart="@+id/txt_ContactNo"
+        android:layout_below="@+id/txt_ContactNo"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="54dp"
+        android:textColorHighlight="@color/black" />
+
+    <Button
+        android:id="@+id/btn_Update"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:layout_alignEnd="@+id/txt_Age"
+        android:layout_alignRight="@+id/txt_Age"
+        android:layout_below="@+id/txt_Age"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginEnd="43dp"
+        android:layout_marginRight="43dp"
+        android:layout_marginTop="56dp"
+        android:background="@color/darkorange"
+        android:text="Update"
+        android:paddingTop="8dp"
+        android:paddingBottom="8dp"
+        android:paddingLeft="8dp"
+        android:paddingRight="8dp"
+        android:textColor="@color/white"
+        android:textColorHighlight="@color/black"
+        android:textStyle="bold" />
+
+
+
+
+</RelativeLayout>

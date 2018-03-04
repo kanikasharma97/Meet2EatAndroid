@@ -54,7 +54,7 @@ public class forgotpassword_activity extends AppCompatActivity {
             public void run() {
 
                 String data="email=" + txtemail.getText();
-                HttpURLConnection myConnection= Network.get("/registration",data);
+                HttpURLConnection myConnection= Network.get("/registration",data, null);
                 try
                 {
                     int code=myConnection.getResponseCode();

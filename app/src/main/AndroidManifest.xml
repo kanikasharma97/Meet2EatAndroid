@@ -12,18 +12,28 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity android:name=".MainActivity" />
-        <activity android:name=".LoginActivity"></activity>
+        <activity android:name=".LoginActivity" />
         <activity android:name=".forgotpassword_activity" />
         <activity android:name=".Homescreen_activity" />
         <activity android:name=".Securityquestion" />
-        <activity android:name=".user">
+        <activity android:name=".user" />
+        <activity android:name=".foodblogger">
+
+        </activity>
+        <activity android:name=".user_profile" />
+        <activity android:name=".foodblogger_profile" />
+        <activity android:name=".restaurant_profilee">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".foodblogger"></activity>
+        <activity android:name=".restaurant_list">
+
+
+
+        </activity>
     </application>
 
 </manifest>

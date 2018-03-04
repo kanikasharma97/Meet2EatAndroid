@@ -2,6 +2,12 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
 
 
+
+        <item
+            android:id="@+id/nav_Home"
+            android:icon="@drawable/ic_action_home"
+            android:title="Home" />
+
         <item
             android:id="@+id/nav_profile"
             android:icon="@drawable/ic_menu_profile"
@@ -14,7 +20,9 @@
             android:id="@+id/nav_meetups"
             android:icon="@drawable/ic_menu_pastmeetups"
             android:title="Past Meetups"/>
-
-
+        <item
+            android:id="@+id/nav_account"
+            android:icon="@drawable/ic_action_account"
+            android:title="Account"/>
 
 </menu>

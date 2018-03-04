@@ -76,10 +76,8 @@ public class Securityquestion extends AppCompatActivity {
             @Override
             public void run() {
 
-
-
                 String data="email=" + email + "&password=" + txtnewpassword.getText();
-                HttpURLConnection myConnection=Network.put("/password",data);
+                HttpURLConnection myConnection=Network.put("/password",data, null);
 
                 try{
                     int code=myConnection.getResponseCode();
