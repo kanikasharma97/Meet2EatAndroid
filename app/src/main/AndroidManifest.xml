@@ -12,28 +12,88 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity android:name=".MainActivity" />
-        <activity android:name=".LoginActivity" />
-        <activity android:name=".forgotpassword_activity" />
-        <activity android:name=".Homescreen_activity" />
-        <activity android:name=".Securityquestion" />
-        <activity android:name=".user" />
-        <activity android:name=".foodblogger">
+        <activity android:name=".LoginActivity" >
+
 
         </activity>
-        <activity android:name=".user_profile" />
-        <activity android:name=".foodblogger_profile" />
-        <activity android:name=".restaurant_profilee">
+
+
+
+
+        <activity android:name=".forgotpassword_activity" >
+
+
+
+        </activity>
+
+        <activity android:name=".Homescreen_activity">
+
+
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
+
             </intent-filter>
-        </activity>
-        <activity android:name=".restaurant_list">
 
 
 
         </activity>
+        <activity android:name=".Securityquestion" />
+        <activity android:name=".user" />
+        <activity android:name=".foodblogger" />
+        <activity android:name=".user_profile" />
+        <activity android:name=".foodblogger_profile" >
+
+
+
+
+        </activity>
+
+        <activity android:name=".restaurant_profilee" >
+
+
+        </activity>
+
+
+        <activity android:name=".restaurant_list" >
+
+
+
+
+
+        </activity>
+
+
+
+        <activity android:name=".restaurantDetails" >
+
+
+        </activity>
+        <activity android:name=".CreateMeetup" >
+
+
+
+
+
+        </activity>
+
+        <activity android:name=".restaurant" >
+
+
+        </activity>
+
+
+
+
+        <activity android:name=".meetup_list">
+
+
+
+
+        </activity>
+        <activity android:name=".meetupdetails" />
+        <activity android:name=".Meetup_update"></activity>
     </application>
 
 </manifest>

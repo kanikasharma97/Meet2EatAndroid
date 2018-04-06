@@ -5,7 +5,6 @@ import android.os.AsyncTask;
 import android.os.Handler;
 import android.os.Message;
 import android.support.annotation.NonNull;
-import android.support.design.internal.BottomNavigationItemView;
 import android.support.design.widget.BottomNavigationView;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -17,17 +16,18 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
-import java.util.ArrayList;
+import java.util.HashMap;
 
-import mapping.RestaurantMapping;
 import utility.Alert;
 import utility.Network;
 import utility.SessionManagement;
-import java.util.*;
 
-public class foodblogger extends AppCompatActivity {
-    TextView lastWeek;
+public class restaurant extends AppCompatActivity {
+  TextView lastWeek;
     TextView lastMonth;
+
+
+
 
 
     final static int SHOW_DETAILS=1;
@@ -44,53 +44,39 @@ public class foodblogger extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_foodblogger);
+        setContentView(R.layout.activity_restaurant);
         lastWeek=(TextView)findViewById(R.id.txt_lastWeek);
         lastMonth=(TextView)findViewById(R.id.txt_lastMonth);
-
-        SessionManagement session =  new SessionManagement(getApplicationContext());
-        session.checkLogin();
-        fetch();
-
-        BottomNavigationView bottomNavigationBar=(BottomNavigationView)findViewById(R.id.foodblogger_navigation);
-        bottomNavigationBar.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener(){
+        BottomNavigationView bottomNavigationBar=(BottomNavigationView)findViewById(R.id.restaurant_navigation);
+        bottomNavigationBar.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
             @Override
-            public boolean onNavigationItemSelected ( MenuItem item) {
-                int id = item.getItemId();
+            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+                int id=item.getItemId();
                 Intent myIntent;
                 SessionManagement session = new SessionManagement(getApplicationContext());
-                switch(id){
+                switch (id){
                     case R.id.nav_profile:
-                         myIntent=new Intent(foodblogger.this,foodblogger_profile.class);
-                        startActivity(myIntent);
-                        return true;
-                    case R.id.nav_restaurant:
-                        if (!session.getProfileComplete()) {
-                            Alert.showError(foodblogger.this, "Please update your profile");
-                            return false;
-                        }
-                        myIntent=new Intent(foodblogger.this,restaurant_list.class);
+                        myIntent =new Intent(restaurant.this,restaurant_profilee.class);
                         startActivity(myIntent);
                         return true;
                     case R.id.nav_account:
-                        Alert.logoutConfirmation(foodblogger.this, "Do you want to really log out?", session);
+                        Alert.logoutConfirmation(restaurant.this, "Do you want to really log out?", session);
                         return true;
-
-                    case R.id.meetups:
+                    case R.id.nav_meetups:
                         if (!session.getProfileComplete()) {
-                            Alert.showError(foodblogger.this, "Please update your profile");
+                            Alert.showError(restaurant.this, "Please update your profile");
                             return false;
                         }
-                        myIntent=new Intent(foodblogger.this,meetup_list.class);
+                        myIntent=new Intent(restaurant.this,meetup_list.class);
                         startActivity(myIntent);
                         return true;
-                        
-
                 }
                 return true;
             }
         });
     }
+
+
 
     void fetch () {
         AsyncTask.execute(new Runnable() {
@@ -105,7 +91,7 @@ public class foodblogger extends AppCompatActivity {
                         InputStreamReader responseBodyReader = new InputStreamReader(responsebody, "UTF-8");
                         JsonReader jsonReader = new JsonReader(responseBodyReader);
 
-                        HashMap <String, Integer> stats = new HashMap<String, Integer>();
+                        HashMap<String, Integer> stats = new HashMap<String, Integer>();
 
                         jsonReader.beginObject();
                         while (jsonReader.hasNext()) {
@@ -117,7 +103,6 @@ public class foodblogger extends AppCompatActivity {
                             } else {
                                 jsonReader.skipValue();
                             }
-
                         }
                         jsonReader.endObject();
                         Message msg=uiHandler.obtainMessage();
@@ -135,4 +120,11 @@ public class foodblogger extends AppCompatActivity {
             }
         });
     }
+
+
+
+
 }
+
+
+

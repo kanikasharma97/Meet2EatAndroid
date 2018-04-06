@@ -38,6 +38,7 @@
         android:layout_marginStart="24dp"
         android:layout_marginTop="96dp"
         android:hint=""
+        android:inputType="textEmailAddress"
         android:textColorHighlight="@color/black" />
 
     <TextView
@@ -81,6 +82,7 @@
         android:layout_below="@+id/txt_name"
         android:layout_gravity="center_horizontal"
         android:layout_marginTop="48dp"
+        android:inputType="number"
         android:textColorHighlight="@color/black" />
 
     <TextView
@@ -103,6 +105,7 @@
         android:layout_below="@+id/txt_ContactNo"
         android:layout_gravity="center_horizontal"
         android:layout_marginTop="54dp"
+        android:inputType="number"
         android:textColorHighlight="@color/black" />
 
     <Button

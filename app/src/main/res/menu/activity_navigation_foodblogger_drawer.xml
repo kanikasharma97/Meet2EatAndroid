@@ -17,7 +17,7 @@
             android:icon="@drawable/ic_action_restaurant"
             android:title="Restaurants" />
         <item
-            android:id="@+id/nav_meetups"
+            android:id="@+id/meetups"
             android:icon="@drawable/ic_menu_pastmeetups"
             android:title="Past Meetups"/>
         <item

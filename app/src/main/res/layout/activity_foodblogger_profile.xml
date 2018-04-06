@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/white"
     tools:context="com.example.kanikasharma.meet2eatandroid.foodblogger_profile">
 
 
@@ -16,19 +17,40 @@
     </android.support.v7.widget.Toolbar>
 
 
+    <TextView
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/txt_email"
+        android:layout_alignStart="@+id/txt_email"
+        android:layout_below="@+id/toolbar"
+        android:layout_marginTop="10dp"
+        android:text="Email"
+        android:textColor="@color/black"
+        android:id="@+id/textView28" />
+
+
     <EditText
         android:id="@+id/txt_email"
         android:layout_width="300dp"
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:layout_below="@+id/toolbar"
+        android:layout_below="@+id/textView28"
         android:layout_gravity="center_horizontal"
         android:layout_marginLeft="24dp"
         android:layout_marginStart="24dp"
-        android:layout_marginTop="39dp"
-        android:hint="Email"
+        android:inputType="textEmailAddress"
         android:textColorHighlight="@color/black" />
+
+    <TextView
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/txt_name"
+        android:layout_alignStart="@+id/txt_name"
+        android:layout_below="@+id/txt_email"
+        android:text="Name"
+        android:textColor="@color/black"
+        android:id="@+id/textView33" />
 
 
     <EditText
@@ -37,11 +59,21 @@
         android:layout_height="wrap_content"
         android:layout_alignLeft="@+id/txt_email"
         android:layout_alignStart="@+id/txt_email"
-        android:layout_below="@+id/txt_email"
+        android:layout_below="@+id/textView33"
         android:layout_gravity="center_horizontal"
-        android:layout_marginTop="23dp"
-        android:hint="Name"
+        android:inputType="none|textPersonName|textFilter"
         android:textColorHighlight="@color/black" />
+
+    <TextView
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/txt_ContactNo"
+        android:layout_alignStart="@+id/txt_ContactNo"
+        android:layout_below="@+id/txt_name"
+        android:layout_marginTop="8dp"
+        android:text="Contact No"
+        android:textColor="@color/black"
+        android:id="@+id/textView25" />
 
     <EditText
         android:id="@+id/txt_ContactNo"
@@ -49,23 +81,45 @@
         android:layout_height="wrap_content"
         android:layout_alignLeft="@+id/txt_name"
         android:layout_alignStart="@+id/txt_name"
-        android:layout_below="@+id/txt_name"
+        android:layout_below="@+id/textView25"
         android:layout_gravity="center_horizontal"
-        android:layout_marginTop="27dp"
-        android:hint="Contact Number"
+        android:inputType="number"
         android:textColorHighlight="@color/black" />
+
+    <TextView
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/txt_ContactNo"
+        android:layout_alignStart="@+id/txt_ContactNo"
+        android:layout_below="@+id/txt_ContactNo"
+        android:layout_marginTop="8dp"
+        android:text="Age"
+        android:textColor="@color/black"
+        android:id="@+id/textView32" />
 
 
     <EditText
         android:id="@+id/txt_Age"
         android:layout_width="300dp"
         android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/txt_ContactNo"
-        android:layout_alignStart="@+id/txt_ContactNo"
-        android:layout_centerVertical="true"
+        android:layout_alignLeft="@+id/textView32"
+        android:layout_alignStart="@+id/textView32"
+        android:layout_below="@+id/textView32"
         android:layout_gravity="center_horizontal"
-        android:hint="Age"
+        android:inputType="number"
         android:textColorHighlight="@color/black" />
+
+
+    <TextView
+        android:id="@+id/textView31"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/txt_experience"
+        android:layout_alignStart="@+id/txt_experience"
+        android:layout_below="@+id/txt_Age"
+        android:layout_marginTop="11dp"
+        android:text="Experience"
+        android:textColor="@color/black" />
 
 
     <EditText
@@ -74,11 +128,21 @@
         android:layout_height="wrap_content"
         android:layout_alignLeft="@+id/txt_Age"
         android:layout_alignStart="@+id/txt_Age"
-        android:layout_below="@+id/txt_Age"
+        android:layout_below="@+id/textView31"
         android:layout_gravity="center_horizontal"
-        android:layout_marginTop="20dp"
-        android:hint="experience"
+        android:inputType="number"
         android:textColorHighlight="@color/black" />
+
+    <TextView
+        android:id="@+id/textView30"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/txt_socialprofile"
+        android:layout_alignStart="@+id/txt_socialprofile"
+        android:layout_below="@+id/txt_experience"
+        android:layout_marginTop="14dp"
+        android:text="Social Profile"
+        android:textColor="@color/black" />
 
 
     <EditText
@@ -87,22 +151,30 @@
         android:layout_height="wrap_content"
         android:layout_alignLeft="@+id/txt_experience"
         android:layout_alignStart="@+id/txt_experience"
-        android:layout_below="@+id/txt_experience"
+        android:layout_below="@+id/textView30"
         android:layout_gravity="center_horizontal"
-        android:layout_marginTop="35dp"
-        android:hint="Social profile"
         android:textColorHighlight="@color/black" />
 
-    <EditText
-        android:id="@+id/txt_address"
+
+    <TextView
+        android:id="@+id/textView29"
         android:layout_width="300dp"
         android:layout_height="wrap_content"
         android:layout_alignLeft="@+id/txt_socialprofile"
         android:layout_alignStart="@+id/txt_socialprofile"
         android:layout_below="@+id/txt_socialprofile"
+        android:layout_marginTop="14dp"
+        android:text="Address"
+        android:textColor="@color/black" />
+
+    <EditText
+        android:id="@+id/txt_address"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/textView29"
+        android:layout_alignStart="@+id/textView29"
+        android:layout_below="@+id/textView29"
         android:layout_gravity="center_horizontal"
-        android:layout_marginTop="35dp"
-        android:hint="Address"
         android:textColorHighlight="@color/black" />
 
 
@@ -114,9 +186,9 @@
         android:layout_alignRight="@+id/txt_address"
         android:layout_below="@+id/txt_address"
         android:layout_gravity="center_horizontal"
-        android:layout_marginEnd="38dp"
-        android:layout_marginRight="38dp"
-        android:layout_marginTop="24dp"
+        android:layout_marginEnd="44dp"
+        android:layout_marginRight="44dp"
+        android:layout_marginTop="21dp"
         android:background="@color/darkorange"
         android:paddingBottom="8dp"
         android:paddingLeft="8dp"

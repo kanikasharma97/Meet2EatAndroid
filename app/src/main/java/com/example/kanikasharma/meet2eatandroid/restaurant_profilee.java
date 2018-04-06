@@ -21,6 +21,7 @@ import java.util.HashMap;
 
 import utility.Alert;
 import utility.Network;
+import utility.SessionManagement;
 import validation.Validation;
 import android.widget.Spinner;
 import android.widget.TimePicker;
@@ -126,6 +127,8 @@ public class restaurant_profilee extends AppCompatActivity {
                 validationResults.add(Validation.handleEmptyField(txtcontactno.getText(), txtcontactno));
                 validationResults.add(Validation.handleEmptyField(txtaddress.getText(), txtaddress));
                 validationResults.add(Validation.handleEmptyField(txtwebsite.getText(), txtwebsite));
+                validationResults.add(Validation.handleEmptyField(txtseatingCapacity.getText(),txtseatingCapacity));
+                validationResults.add(Validation.handleExactLength(txtcontactno.getText(),txtcontactno,10, "Contact No"));
 
                 if(validationResults.contains(false)==false){
                     update();
@@ -145,7 +148,8 @@ public class restaurant_profilee extends AppCompatActivity {
         AsyncTask.execute(new Runnable() {
             @Override
             public void run() {
-                HttpURLConnection myConnection= Network.get("/restaurant",null,"123456");
+                SessionManagement session = new SessionManagement(getApplicationContext());
+                HttpURLConnection myConnection= Network.get("/restaurant",null,session.getAuthToken());
                 try {
                     int code = myConnection.getResponseCode();
                     if (code == 200) {
@@ -209,7 +213,8 @@ public class restaurant_profilee extends AppCompatActivity {
                        "&startTime=" + startTimeValue +
                        "&endTime=" + endTimeValue +
                        "&type=" + restaurantType.getSelectedItem().toString();
-               HttpURLConnection myConnection = Network.put("/restaurant",data,"123456");
+               SessionManagement session = new SessionManagement(getApplicationContext());
+               HttpURLConnection myConnection = Network.put("/restaurant",data,session.getAuthToken());
 
                try{
                     int code=myConnection.getResponseCode();
@@ -222,9 +227,9 @@ public class restaurant_profilee extends AppCompatActivity {
                         while (jsonReader.hasNext()) {
                             String key = jsonReader.nextName();
                             if (key.equals("email")) {
-                                msg.what = SHOW_ERROR;
-                                msg.obj = jsonReader.nextString();
-                                uihandler.sendMessage(msg);
+                                    msg.what = SHOW_ERROR;
+                                    msg.obj = jsonReader.nextString();
+                                    uihandler.sendMessage(msg);
                                 break;
 
                             } else {
@@ -238,6 +243,7 @@ public class restaurant_profilee extends AppCompatActivity {
                         msg.what=SHOW_SUCCESS;
                         msg.obj="profile update successfully";
                         uihandler.sendMessage(msg);
+                        session.setProfileComplete(true);
                     }
                }catch (IOException e){
                    System.out.println(e.getMessage());

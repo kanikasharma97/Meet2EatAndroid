@@ -19,6 +19,8 @@ public class SessionManagement {
     private static final String PREF_NAME = "pref";
     private static final String IS_LOGIN = "isLoggedIn";
     private static final String KEY_AUTH_TOKEN =  "authToken";
+    private static final String KEY_USER_TYPE = "userType";
+    private static final String KEY_PROFILE_COMPLETE = "profileComplete";
 
     public SessionManagement(Context context) {
         this._context = context;
@@ -26,9 +28,11 @@ public class SessionManagement {
         editor = pref.edit();
     }
 
-    public void createLoginSession(String authToken) {
+    public void createLoginSession(String authToken, String userType, boolean isProfileComplete) {
         editor.putBoolean(IS_LOGIN, true);
         editor.putString(KEY_AUTH_TOKEN, authToken);
+        editor.putString(KEY_USER_TYPE, userType);
+        editor.putBoolean(KEY_PROFILE_COMPLETE, isProfileComplete);
         editor.commit();
     }
 
@@ -60,8 +64,14 @@ public class SessionManagement {
     public String getAuthToken () {
         return pref.getString(KEY_AUTH_TOKEN, null);
     }
+    public String getUserType () {return pref.getString(KEY_USER_TYPE, null);}
 
     public boolean isLoggedIn() {
         return pref.getBoolean(IS_LOGIN, false);
+    }
+    public boolean getProfileComplete () {return pref.getBoolean(KEY_PROFILE_COMPLETE, false);}
+    public void setProfileComplete (boolean iscomplete) {
+        editor.putBoolean(KEY_PROFILE_COMPLETE, iscomplete);
+        editor.commit();
     }
 }

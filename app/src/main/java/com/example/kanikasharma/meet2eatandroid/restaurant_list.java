@@ -16,27 +16,52 @@ import android.view.*;
 import android.os.*;
 
 import mapping.RestaurantMapping;
-import utility.Network;
+import utility.*;
 
 public class restaurant_list extends AppCompatActivity {
+    ListView listView;
+    ArrayList <RestaurantMapping> mappings;
 
     final static int SHOW_DETAILS=1;
     final Handler uiHandler=new Handler(){
         public void handleMessage(Message msg){
             if(msg.what==SHOW_DETAILS){
-                ArrayList <RestaurantMapping> mappings = (ArrayList <RestaurantMapping>)msg.obj;
+                mappings = (ArrayList <RestaurantMapping>)msg.obj;
                 RestaurantAdapter adapter = new RestaurantAdapter(restaurant_list.this, mappings);
-                ListView listView = (ListView) findViewById(R.id.lvRestaurants);
+
                 listView.setAdapter(adapter);
+
             }
         }
 
     };
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.restaurant_list);
         fetchdetails();
+        listView = (ListView) findViewById(R.id.lvRestaurants);
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                RestaurantMapping item = mappings.get(i);
+                Intent myIntent=new Intent(restaurant_list.this,restaurantDetails.class);
+                myIntent.putExtra("name",item.name);
+                myIntent.putExtra("contactNo",item.contactNo);
+                myIntent.putExtra("address",item.address);
+                myIntent.putExtra("website",item.website);
+                myIntent.putExtra("availabilityWeekday",item.availabilityWeekday);
+                myIntent.putExtra("availabilityWeekend",item.availabilityWeekend);
+                myIntent.putExtra("startTime",item.startTime);
+                myIntent.putExtra("endTime",item.endTime);
+                myIntent.putExtra("seatingCapacity",item.seatingCapacity);
+                myIntent.putExtra("uid", item.uid);
+                startActivity(myIntent);
+            }
+        });
+
     }
 
 
@@ -44,7 +69,8 @@ public class restaurant_list extends AppCompatActivity {
         AsyncTask.execute(new Runnable() {
             @Override
             public void run() {
-                HttpURLConnection myConnection= Network.get("/restaurants",null, "123456");
+                SessionManagement session = new SessionManagement(getApplicationContext());
+                HttpURLConnection myConnection= Network.get("/restaurants",null, session.getAuthToken());
                 try{
                     int code=myConnection.getResponseCode();
                     if(code==200){
@@ -91,29 +117,12 @@ public class restaurant_list extends AppCompatActivity {
             name.setText(restaurant.name);
             address.setText(restaurant.address);
             type.setText(restaurant.type);
-            // fix this
-            //capacity.setText(restaurant.seatingCapacity);
+            capacity.setText(String.valueOf(restaurant.seatingCapacity));
 
             String availDisplay;
+            availability.setText(utility.Display.availDisplay(restaurant.availabilityWeekday, restaurant.availabilityWeekend));
 
-            if (restaurant.availabilityWeekday && restaurant.availabilityWeekend) {
-                availDisplay = "Mon to Sun";
-            } else if (restaurant.availabilityWeekday){
-                availDisplay = "Mon to Fri";
-            } else if (restaurant.availabilityWeekend){
-                availDisplay = "Sat to Sun";
-            } else {
-                availDisplay = "Not Available";
-            }
-            availability.setText(availDisplay);
-
-            int startHour = restaurant.startTime / 60;
-            int startMin = restaurant.startTime % 60;
-
-            int endHour = restaurant.endTime / 60;
-            int endMin = restaurant.endTime % 60;
-
-            timings.setText(String.format("%d:%d - %d:%d", startHour, startMin, endHour, endMin));
+            timings.setText(utility.Display.timeDisplay(restaurant.startTime,restaurant.endTime));
             return convertView;
         }
     }

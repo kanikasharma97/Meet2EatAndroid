@@ -104,6 +104,7 @@ public class user_profile extends AppCompatActivity {
                                           validationResults.add(Validation.handleEmptyField(txtname.getText(), txtname));
                                           validationResults.add(Validation.handleEmptyField(txtcontactno.getText(), txtcontactno));
                                           validationResults.add(Validation.handleEmptyField(txtage.getText(), txtage));
+                                          validationResults.add(Validation.handleExactLength(txtcontactno.getText(),txtcontactno,10, "Contact No"));
 
 
                                           if (validationResults.contains(false) == false) {
@@ -203,6 +204,7 @@ public class user_profile extends AppCompatActivity {
                         msg.what = SHOW_SUCCESS;
                         msg.obj = "profile update successfully";
                         uihandler.sendMessage(msg);
+                        session.setProfileComplete(true);
                     }
 
                 }catch (IOException e) {

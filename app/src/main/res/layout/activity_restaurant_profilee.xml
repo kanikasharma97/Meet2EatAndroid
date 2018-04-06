@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/white"
     tools:context="com.example.kanikasharma.meet2eatandroid.restaurant_profilee">
 
     <android.support.v7.widget.Toolbar
@@ -31,45 +32,75 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="20dp"
+                android:layout_marginTop="10dp"
                 android:text="Basic Information"
                 android:textColor="@color/black"
                 android:textSize="20sp"
                 android:textStyle="bold" />
 
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Email"
+                android:textColor="@color/black"
+                android:layout_marginTop="15dp"/>
+
             <EditText
                 android:id="@+id/txt_email"
                 android:layout_width="300dp"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="20dp"
-                android:hint="Email" />
+                android:layout_marginTop="0dp"
+                android:inputType="textEmailAddress" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Name"
+                android:layout_marginTop="10dp"
+                android:textColor="@color/black"/>
 
             <EditText
                 android:id="@+id/txt_name"
                 android:layout_width="300dp"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="20dp"
-                android:hint="Name" />
+                android:layout_marginTop="0dp"
+                />
+
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Contact No"
+                android:layout_marginTop="10dp"
+                android:textColor="@color/black"/>
 
             <EditText
                 android:id="@+id/txt_ContactNo"
                 android:layout_width="300dp"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="20dp"
-                android:hint="Contact No" />
+                android:layout_marginTop="0dp"
+                android:inputType="number" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:textColor="@color/black"
+                android:text="Address"/>
 
 
             <EditText
                 android:id="@+id/txt_address"
                 android:layout_width="300dp"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="20dp"
-                android:hint="Address" />
+                android:layout_marginTop="0dp"
+                />
+
             <TextView
                 android:layout_width="300dp"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="20dp"
-                android:text="Type"/>
+                android:layout_marginTop="10dp"
+                android:text="Type"
+                android:textColor="@color/black" />
 
             <Spinner
                 android:layout_width="300dp"
@@ -77,20 +108,34 @@
                 android:entries="@array/Restauranttype"
                 android:id="@+id/spinner_restaurantType"></Spinner>
 
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Website"
+                android:layout_marginTop="10dp"
+                android:textColor="@color/black"/>
+
 
             <EditText
                 android:id="@+id/txt_website"
                 android:layout_width="300dp"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="20dp"
-                android:hint="Website" />
+                android:layout_marginTop="0dp"
+                />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Seating Cpacity"
+                android:textColor="@color/black"
+                android:layout_marginTop="10dp"/>
 
             <EditText
+                android:id="@+id/txt_seatingcapacity"
                 android:layout_width="300dp"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="20dp"
-                android:hint="Seating Capacity"
-                android:id="@+id/txt_seatingcapacity"/>
+                android:layout_marginTop="0dp"
+                android:inputType="number" />
 
             <TextView
                 android:layout_width="300dp"
@@ -105,7 +150,8 @@
                 android:layout_width="300dp"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="20dp"
-                android:text="Start Time" />
+                android:text="Week Day"
+                android:textColor="@color/black"/>
 
             <Spinner
                 android:id="@+id/spinner_avilaibilityweekday"
@@ -117,8 +163,9 @@
             <TextView
                 android:layout_width="300dp"
                 android:layout_height="wrap_content"
-                android:text="End Time"
-                android:layout_marginTop="20dp"/>
+                android:text="Week End"
+                android:layout_marginTop="20dp"
+                android:textColor="@color/black"/>
 
             <Spinner
                 android:id="@+id/spinner_availaibilityweekend"
@@ -130,7 +177,8 @@
                 android:layout_width="300dp"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="20dp"
-                android:text="Start Time" />
+                android:text="Start Time"
+                android:textColor="@color/black"/>
 
             <TimePicker
                 android:layout_width="300dp"
@@ -143,7 +191,8 @@
                 android:layout_width="300dp"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="20dp"
-                android:text="End time" />
+                android:text="End time"
+                android:textColor="@color/black"/>
 
             <TimePicker
                 android:layout_width="300dp"

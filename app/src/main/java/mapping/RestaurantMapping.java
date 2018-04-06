@@ -21,10 +21,11 @@ public class RestaurantMapping {
     public Integer startTime;
     public Integer endTime;
     public Integer seatingCapacity;
+    public Integer uid;
 
 
 
-    public RestaurantMapping(String name,String contactNo, String address, String type, String website, int startTime, int endTime, int seatingCapacity, boolean availabilityWeekday, boolean availabilityWeekend){
+    public RestaurantMapping(String name,int uid , String contactNo, String address, String type, String website, int startTime, int endTime, int seatingCapacity, boolean availabilityWeekday, boolean availabilityWeekend){
 
         this.name = name;
         this.contactNo = contactNo;
@@ -36,11 +37,12 @@ public class RestaurantMapping {
         this.seatingCapacity = seatingCapacity;
         this.availabilityWeekday = availabilityWeekday;
         this.availabilityWeekend = availabilityWeekend;
+        this.uid = uid;
     }
 
     public static RestaurantMapping getObject(JsonReader reader) {
         String name=null,contactNo=null,address=null, type=null, website=null;
-        int startTime=0, endTime=0, seatingCapacity=0;
+        int startTime=0, endTime=0, seatingCapacity=0, uid=0;
         Boolean availabilityWeekday=null, availabilityWeekend=null;
 
 
@@ -68,7 +70,9 @@ public class RestaurantMapping {
                     availabilityWeekday = reader.nextBoolean();
                 } else if (key.equals("availabilityWeekend")) {
                     availabilityWeekend = reader.nextBoolean();
-                } else {
+                } else if (key.equals("uid")) {
+                    uid = reader.nextInt();
+                }else {
                     reader.skipValue();
                 }
             }
@@ -78,7 +82,7 @@ public class RestaurantMapping {
 
         }
 
-        return new RestaurantMapping(name,contactNo, address, type, website, startTime, endTime, seatingCapacity, availabilityWeekday, availabilityWeekend);
+        return new RestaurantMapping(name,uid, contactNo, address, type, website, startTime, endTime, seatingCapacity, availabilityWeekday, availabilityWeekend);
     }
 
     public static ArrayList<RestaurantMapping> fromJson(JsonReader reader) {

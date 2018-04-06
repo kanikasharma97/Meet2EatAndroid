@@ -55,11 +55,11 @@ public class MainActivity extends AppCompatActivity {
                         ArrayList <Boolean> validationResults = new ArrayList<Boolean>();
 
                         validationResults.add(Validation.handleEmptyField(txtEmail.getText(), txtEmail));
-                        validationResults.add(Validation.handleSufficientLength(txtpsw.getText(),txtpsw, 6));
-                        validationResults.add(Validation.handleSufficientLength(txtconfirmpsw.getText(), txtconfirmpsw,6));
+                        validationResults.add(Validation.handleRange(txtpsw.getText(),txtpsw,6,10,"Password"));
+                        validationResults.add(Validation.handleRange(txtconfirmpsw.getText(), txtconfirmpsw,6, 10,"Confirm Password"));
                         validationResults.add(Validation.handleEmptyField(txtsecureans.getText(),txtsecureans));
 
-               //Match password and confirm password
+
                         if(txtpsw.getText().toString().equals(txtconfirmpsw.getText().toString()) == false) {
                             txtconfirmpsw.setError("Password & Confirm Password do not match");
 

@@ -20,6 +20,7 @@ import java.util.HashMap;
 
 import utility.Alert;
 import utility.Network;
+import utility.SessionManagement;
 import validation.Validation;
 
 public class foodblogger_profile extends AppCompatActivity {
@@ -106,10 +107,12 @@ public class foodblogger_profile extends AppCompatActivity {
 
                   validationResults.add(Validation.handleEmptyField(txtemail.getText(), txtemail));
                   validationResults.add(Validation.handleEmptyField(txtname.getText(), txtname));
-                  validationResults.add(Validation.handleEmptyField(txtcontactno.getText(), txtcontactno));
+                  //validationResults.add(Validation.handleEmptyField(txtcontactno.getText(), txtcontactno));
                   validationResults.add(Validation.handleEmptyField(txtage.getText(), txtage));
                   validationResults.add(Validation.handleEmptyField(txtaddress.getText(), txtaddress));
                   validationResults.add(Validation.handleEmptyField(txtexperience.getText(), txtexperience));
+                  validationResults.add(Validation.handleEmptyField(txtsocialprofile.getText(),txtsocialprofile));
+                  validationResults.add(Validation.handleExactLength(txtcontactno.getText(),txtcontactno,10, "Contact No"));
 
                   if (validationResults.contains(false) == false) {
                       update();
@@ -128,8 +131,8 @@ public class foodblogger_profile extends AppCompatActivity {
             @Override
             public void run() {
 
-
-                HttpURLConnection myConnection= Network.get("/blogger",null, "123456");
+                SessionManagement session = new SessionManagement(getApplicationContext());
+                HttpURLConnection myConnection= Network.get("/blogger",null, session.getAuthToken());
                 try
                 {
                     int code = myConnection.getResponseCode();
@@ -172,8 +175,9 @@ public class foodblogger_profile extends AppCompatActivity {
         AsyncTask.execute(new Runnable() {
             @Override
             public void run() {
+                SessionManagement session = new SessionManagement(getApplicationContext());
                 String data="email=" + txtemail.getText() + "&age=" + txtage.getText() + "&contactNo=" + txtcontactno.getText() + "&name=" + txtname.getText() + "&socialProfile=" + txtsocialprofile.getText() + "&experience=" + txtexperience.getText() + "&address=" + txtaddress.getText();
-                HttpURLConnection myConnection = Network.put("/blogger",data,"123456");
+                HttpURLConnection myConnection = Network.put("/blogger",data,session.getAuthToken());
 
                 try{
                     int code= myConnection.getResponseCode();
@@ -202,6 +206,7 @@ public class foodblogger_profile extends AppCompatActivity {
                         msg.what = SHOW_SUCCESS;
                         msg.obj = "profile update successfully";
                         uihandler.sendMessage(msg);
+                        session.setProfileComplete(true);
                     }
 
 
