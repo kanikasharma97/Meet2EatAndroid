@@ -30,6 +30,23 @@
         <item>Restaurant</item>
     </string-array>
 
+    <string-array name="AvailaibilityWeekday">
+        <item>YES</item>
+        <item>NO</item>
+    </string-array>
+
+    <string-array name="AvailaibilityWeekend">
+        <item>YES</item>
+        <item>NO</item>
+    </string-array>
+
+    <string-array name="Restauranttype">
+        <item>Cafe</item>
+        <item>pub</item>
+        <item>Family Restaurant</item>
+        <item>Others</item>
+    </string-array>
+
 
     <string name="new_to_this_register_here">New to this? Register here</string>
     <string name="email_address">Email Address</string>
@@ -39,6 +56,15 @@
     <string name="trouble_in_logging_in">Trouble in logging in?</string>
     <string name="enter_your_email">Enter your email</string>
     <string name="next">Next</string>
+    <string name="title_activity_restaurant_profile">restaurant_profile</string>
+    <string name="section_format">Hello World from section: %1$d</string>
+    <string name="tab_text_1">Tab 1</string>
+    <string name="tab_text_2">Tab 2</string>
+    <string name="tab_text_3">Tab 3</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="seating_capacity">Seating Capacity</string>
 
 </resources>
 

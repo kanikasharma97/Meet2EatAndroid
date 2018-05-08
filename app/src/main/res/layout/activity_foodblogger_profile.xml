@@ -1,0 +1,205 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    tools:context="com.example.kanikasharma.meet2eatandroid.foodblogger_profile">
+
+
+    <android.support.v7.widget.Toolbar
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:id="@+id/toolbar"
+        android:background="@color/colorPrimary"
+        app:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar">
+    </android.support.v7.widget.Toolbar>
+
+
+    <TextView
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/txt_email"
+        android:layout_alignStart="@+id/txt_email"
+        android:layout_below="@+id/toolbar"
+        android:layout_marginTop="10dp"
+        android:text="Email"
+        android:textColor="@color/black"
+        android:id="@+id/textView28" />
+
+
+    <EditText
+        android:id="@+id/txt_email"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/textView28"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginLeft="24dp"
+        android:layout_marginStart="24dp"
+        android:inputType="textEmailAddress"
+        android:textColorHighlight="@color/black" />
+
+    <TextView
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/txt_name"
+        android:layout_alignStart="@+id/txt_name"
+        android:layout_below="@+id/txt_email"
+        android:text="Name"
+        android:textColor="@color/black"
+        android:id="@+id/textView33" />
+
+
+    <EditText
+        android:id="@+id/txt_name"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/txt_email"
+        android:layout_alignStart="@+id/txt_email"
+        android:layout_below="@+id/textView33"
+        android:layout_gravity="center_horizontal"
+        android:inputType="none|textPersonName|textFilter"
+        android:textColorHighlight="@color/black" />
+
+    <TextView
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/txt_ContactNo"
+        android:layout_alignStart="@+id/txt_ContactNo"
+        android:layout_below="@+id/txt_name"
+        android:layout_marginTop="8dp"
+        android:text="Contact No"
+        android:textColor="@color/black"
+        android:id="@+id/textView25" />
+
+    <EditText
+        android:id="@+id/txt_ContactNo"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/txt_name"
+        android:layout_alignStart="@+id/txt_name"
+        android:layout_below="@+id/textView25"
+        android:layout_gravity="center_horizontal"
+        android:inputType="number"
+        android:textColorHighlight="@color/black" />
+
+    <TextView
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/txt_ContactNo"
+        android:layout_alignStart="@+id/txt_ContactNo"
+        android:layout_below="@+id/txt_ContactNo"
+        android:layout_marginTop="8dp"
+        android:text="Age"
+        android:textColor="@color/black"
+        android:id="@+id/textView32" />
+
+
+    <EditText
+        android:id="@+id/txt_Age"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/textView32"
+        android:layout_alignStart="@+id/textView32"
+        android:layout_below="@+id/textView32"
+        android:layout_gravity="center_horizontal"
+        android:inputType="number"
+        android:textColorHighlight="@color/black" />
+
+
+    <TextView
+        android:id="@+id/textView31"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/txt_experience"
+        android:layout_alignStart="@+id/txt_experience"
+        android:layout_below="@+id/txt_Age"
+        android:layout_marginTop="11dp"
+        android:text="Experience"
+        android:textColor="@color/black" />
+
+
+    <EditText
+        android:id="@+id/txt_experience"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/txt_Age"
+        android:layout_alignStart="@+id/txt_Age"
+        android:layout_below="@+id/textView31"
+        android:layout_gravity="center_horizontal"
+        android:inputType="number"
+        android:textColorHighlight="@color/black" />
+
+    <TextView
+        android:id="@+id/textView30"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/txt_experience"
+        android:layout_alignStart="@+id/txt_experience"
+        android:layout_below="@+id/txt_experience"
+        android:text="Social Profile"
+        android:textColor="@color/black" />
+
+
+    <EditText
+        android:id="@+id/txt_socialprofile"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/textView30"
+        android:layout_alignStart="@+id/textView30"
+        android:layout_below="@+id/textView30"
+        android:layout_gravity="center_horizontal"
+        android:textColorHighlight="@color/black" />
+
+
+    <TextView
+        android:id="@+id/textView29"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/txt_socialprofile"
+        android:layout_alignStart="@+id/txt_socialprofile"
+        android:layout_below="@+id/txt_socialprofile"
+        android:text="Address"
+        android:textColor="@color/black" />
+
+    <EditText
+        android:id="@+id/txt_address"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/textView29"
+        android:layout_alignStart="@+id/textView29"
+        android:layout_below="@+id/textView29"
+        android:layout_gravity="center_horizontal"
+        android:textColorHighlight="@color/black" />
+
+
+    <Button
+        android:id="@+id/btn_Update"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:layout_alignEnd="@+id/txt_address"
+        android:layout_alignRight="@+id/txt_address"
+        android:layout_below="@+id/txt_address"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginEnd="44dp"
+        android:layout_marginRight="44dp"
+        android:layout_marginTop="14dp"
+        android:background="@color/darkorange"
+        android:paddingBottom="8dp"
+        android:paddingLeft="8dp"
+        android:paddingRight="8dp"
+        android:paddingTop="8dp"
+        android:text="Update"
+        android:textColor="@color/white"
+        android:textColorHighlight="@color/black"
+        android:textStyle="bold" />
+
+
+
+
+
+
+</RelativeLayout>

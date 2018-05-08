@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:design="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    tools:context="com.example.kanikasharma.meet2eatandroid.foodblogger">
+
+
+    <android.support.design.widget.BottomNavigationView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/foodblogger_navigation"
+        android:layout_gravity="bottom"
+        design:menu="@menu/activity_navigation_foodblogger_drawer"/>
+
+
+
+    <RelativeLayout
+        android:layout_width="410dp"
+        android:layout_height="600dp"
+        >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="169dp"
+            android:text="Meetup Statistics"
+            android:textColor="@color/darkorange"
+            android:textSize="30dp"
+            android:textStyle="italic"
+            android:id="@+id/textView38" />
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignLeft="@+id/textView38"
+            android:layout_alignStart="@+id/textView38"
+            android:layout_below="@+id/textView38"
+            android:layout_marginTop="38dp"
+            android:text="Past 7 days:"
+            android:textColor="@color/black"
+            android:textSize="25dp"
+            android:id="@+id/textView39" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignTop="@+id/textView39"
+            android:layout_marginLeft="45dp"
+            android:layout_marginStart="45dp"
+            android:layout_toEndOf="@+id/textView39"
+            android:layout_toRightOf="@+id/textView39"
+            android:text="0"
+            android:textSize="20dp"
+            android:id="@+id/txt_lastWeek" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignLeft="@+id/textView39"
+            android:layout_alignStart="@+id/textView39"
+            android:layout_below="@+id/textView39"
+            android:layout_marginTop="36dp"
+            android:text="Past 30 days:"
+            android:textColor="@color/black"
+            android:textSize="25dp"
+            android:id="@+id/textView40" />
+
+        <TextView
+            android:id="@+id/txt_lastMonth"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignLeft="@+id/txt_lastWeek"
+            android:layout_alignStart="@+id/txt_lastWeek"
+            android:layout_alignTop="@+id/textView40"
+            android:text="0"
+            android:textSize="20dp" />
+
+
+
+
+
+
+
+
+
+
+    </RelativeLayout>
+</android.support.design.widget.CoordinatorLayout>

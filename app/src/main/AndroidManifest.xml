@@ -11,40 +11,123 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".MainActivity">
-
+        <activity android:name=".MainActivity" />
+        <activity android:name=".LoginActivity" >
 
 
         </activity>
 
-        <activity android:name=".LoginActivity"></activity>
-        <activity
-            android:name=".user_navigation"
-            android:label="@string/title_activity_user_navigation"
-            android:theme="@style/AppTheme" />
-        <activity
-            android:name=".navigation_foodblogger"
-            android:label="@string/title_activity_navigation_foodblogger"
-            android:theme="@style/AppTheme" />
+
+
+
         <activity android:name=".forgotpassword_activity" >
 
 
 
         </activity>
 
-
         <activity android:name=".Homescreen_activity">
 
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
+
+
+              <intent-filter>                                                                  
+                              <action android:name="android.intent.action.MAIN" />             
+                                                                                               
+                              <category android:name="android.intent.category.LAUNCHER" />     
+                                                                                               
+                          </intent-filter>                                                     
+                                                                                               
+                                                                                               
+
+
 
         </activity>
-        <activity android:name=".Securityquestion">
+        <activity android:name=".Securityquestion" />
+        <activity android:name=".user" />
+        <activity android:name=".foodblogger" />
+        <activity android:name=".user_profile" />
+        <activity android:name=".foodblogger_profile" >
+
+
+
+
+
+
+
+
+
 
         </activity>
+
+        <activity android:name=".restaurant_profilee" >
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        </activity>
+
+
+        <activity android:name=".restaurant_list" >
+
+
+
+
+
+        </activity>
+
+
+
+        <activity android:name=".restaurantDetails" >
+
+
+        </activity>
+        <activity android:name=".CreateMeetup" >
+
+
+
+
+
+        </activity>
+
+        <activity android:name=".restaurant" >
+
+
+        </activity>
+
+
+
+
+        <activity android:name=".meetup_list">
+
+
+
+
+        </activity>
+        <activity android:name=".meetupdetails" >
+
+
+
+        </activity>
+
+
+
+
+        <activity android:name=".Meetup_update"></activity>
     </application>
 
 </manifest>

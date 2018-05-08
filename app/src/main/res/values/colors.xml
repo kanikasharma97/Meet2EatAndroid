@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#FF8C00</color>
-    <color name="colorPrimaryDark">#ff8c00</color>
+    <color name="colorPrimary">#ff8c00</color>
+    <color name="colorPrimaryDark">#FF7F50</color>
     <color name="colorAccent">#F4A460</color>
     <color name="azure">#f1f5f8</color>
     <color name="white">#ffffff</color>
@@ -23,5 +23,5 @@
     <color name="indianred">#CD5C5C</color>
     <color name="whitesmoke">#F5F5F5</color>
     <color name="darkorange">#FF8C00</color>
-    <color name="Tomato">#FF6347</color>
+    <color name="Tomato">#e97216</color>
 </resources>

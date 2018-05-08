@@ -1,6 +1,7 @@
 package com.example.kanikasharma.meet2eatandroid;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.AsyncTask;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -17,6 +18,8 @@ import java.util.ArrayList;
 import utility.*;
 import validation.Validation;
 import android.os.*;
+import android.content.Context;
+import utility.SessionManagement;
 
 
 
@@ -25,6 +28,13 @@ public class LoginActivity extends AppCompatActivity {
     EditText txtpsw;
     Button   button;
     TextView txtforgotpassword;
+    TextView txtregister;
+
+
+    public static final String MyPREFERENCES = "MyPrefs" ;
+    public static final String AuthToken = "AuthTokenKey";
+    //public SharedPreferences sharedpreferences = getApplicationContext().getSharedPreferences("MyPref", 0);
+
     final static int SHOW_ERROR = 1;
     final Handler uiHandler = new Handler () {
 
@@ -44,6 +54,7 @@ public class LoginActivity extends AppCompatActivity {
         setContentView(R.layout.activity_login);
 
         txtEmail=(EditText)findViewById(R.id.txt_email);
+        txtregister=(TextView) findViewById(R.id.txt_registerhere);
         txtpsw=(EditText)findViewById(R.id.txt_psw);
         button = (Button)findViewById(R.id.btn_login);
         txtforgotpassword=(TextView)findViewById(R.id.txt_forgotpassword);
@@ -52,9 +63,11 @@ public class LoginActivity extends AppCompatActivity {
         button.setOnClickListener(
             new View.OnClickListener() {
                 public void onClick (View view){
+
                     ArrayList <Boolean> validationResults = new ArrayList <Boolean>();
                     validationResults.add(Validation.handleEmptyField(txtEmail.getText(), txtEmail));
-                    validationResults.add(Validation.handleSufficientLength(txtpsw.getText(),txtpsw, 6));
+                    validationResults.add(Validation.handleEmptyField(txtpsw.getText(),txtpsw));
+                    validationResults.add(Validation.handleSufficientLength(txtpsw.getText(),txtpsw, 6, "Password"));
 
                     if(validationResults.contains(false) == false){
                         submit();
@@ -75,6 +88,15 @@ public class LoginActivity extends AppCompatActivity {
                  startActivity(myIntent);
              }
          });
+         txtregister.setOnClickListener(new View.OnClickListener() {
+             @Override
+             public void onClick(View view) {
+                 Intent myIntent=new Intent(LoginActivity.this,MainActivity.class);
+                 startActivity(myIntent);
+             }
+         });
+
+
     }
 
 
@@ -88,7 +110,7 @@ public class LoginActivity extends AppCompatActivity {
 
                 String data = "email=" + txtEmail.getText() + "&password=" + txtpsw.getText();
 
-                HttpURLConnection myConnection = Network.post("/login", data);
+                HttpURLConnection myConnection = Network.post("/login", data, null);
 
                 try {
 
@@ -101,33 +123,45 @@ public class LoginActivity extends AppCompatActivity {
 
                         jsonReader.beginObject();
                         String type=null, authToken=null;
+                        boolean isProfileComplete=false;
 
                         while (jsonReader.hasNext()) {
                             String key = jsonReader.nextName();
                             if (key.equals("type")) {
                                 type = jsonReader.nextString();
-                                System.out.println(type);
                             } else if (key.equals("authToken")) {
                                 authToken = jsonReader.nextString();
-                                System.out.println(authToken);
+                            } else if (key.equals("isProfileComplete")){
+                                isProfileComplete = jsonReader.nextBoolean();
                             } else {
                                 jsonReader.skipValue();
                             }
                         }
+                        SessionManagement session = new SessionManagement(getApplicationContext());
+                        session.createLoginSession(authToken, type, isProfileComplete);
+                        Intent myIntent = null;
                         if(type.equals("user")) {
-                            Intent myIntent = new Intent(LoginActivity.this,
-                                    user_navigation.class);
-                            startActivity(myIntent);
-                        }else if(type.equals("blogger")) {
-                            Intent myIntent=new Intent(LoginActivity.this,
-                                    navigation_foodblogger.class);
-                        }
+                            myIntent = new Intent(LoginActivity.this,
+                                    user.class);
 
+                        }else if(type.equals("blogger")) {
+                            myIntent=new Intent(LoginActivity.this,
+                                    foodblogger.class);
+                        } else if (type.equals("restaurant")){
+                            myIntent=new Intent(LoginActivity.this,
+                                    restaurant.class);
+                        }
+                        startActivity(myIntent);
 
                     } else if(code==401) {
                       Message msg = uiHandler.obtainMessage();
-                        msg.what = SHOW_ERROR;
+                      msg.what = SHOW_ERROR;
                       msg.obj = "Username/Password is incorrect";
+                      uiHandler.sendMessage(msg);
+                    } else if (code == 400) {
+                      Message msg = uiHandler.obtainMessage();
+                      msg.what = SHOW_ERROR;
+                      msg.obj = "Please enter valid email address";
                       uiHandler.sendMessage(msg);
                     }
                 } catch (IOException e) {

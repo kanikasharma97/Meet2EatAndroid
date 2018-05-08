@@ -15,8 +15,10 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
+import java.util.ArrayList;
 
 import utility.Network;
+import validation.Validation;
 
 public class forgotpassword_activity extends AppCompatActivity {
 
@@ -42,7 +44,15 @@ public class forgotpassword_activity extends AppCompatActivity {
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                submit();
+
+                ArrayList<Boolean> validationResults = new ArrayList<Boolean>();
+
+                validationResults.add(Validation.handleEmptyField(txtemail.getText(), txtemail));
+
+                if (validationResults.contains(false) == false) {
+                    submit();
+                }
+
             }
         });
     }
@@ -54,7 +64,7 @@ public class forgotpassword_activity extends AppCompatActivity {
             public void run() {
 
                 String data="email=" + txtemail.getText();
-                HttpURLConnection myConnection= Network.get("/registration",data);
+                HttpURLConnection myConnection= Network.get("/registration",data, null);
                 try
                 {
                     int code=myConnection.getResponseCode();

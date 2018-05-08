@@ -1,34 +1,28 @@
 <?xml version="1.0" encoding="utf-8"?>
-<menu xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    tools:showIn="navigation_view">
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
 
-    <group android:checkableBehavior="single">
+
+
         <item
-            android:id="@+id/nav_camera"
+            android:id="@+id/nav_Home"
+            android:icon="@drawable/ic_action_home"
+            android:title="Home" />
+
+        <item
+            android:id="@+id/nav_profile"
             android:icon="@drawable/ic_menu_profile"
             android:title="Profile" />
         <item
-            android:id="@+id/nav_gallery"
+            android:id="@+id/nav_restaurant"
             android:icon="@drawable/ic_action_restaurant"
             android:title="Restaurants" />
         <item
-            android:id="@+id/nav_slideshow"
+            android:id="@+id/meetups"
             android:icon="@drawable/ic_menu_pastmeetups"
-            android:title="Past Meetups" />
-    </group>
-
-    <item android:title="Account">
-        <menu>
-            <item
-                android:id="@+id/nav_share"
-                android:icon="@drawable/ic__menulogout"
-                android:title="Logout" />
-            <item
-                android:id="@+id/nav_send"
-                android:icon="@drawable/ic_action_delete"
-                android:title="Delete" />
-        </menu>
-    </item>
+            android:title="Meetups"/>
+        <item
+            android:id="@+id/nav_account"
+            android:icon="@drawable/ic_action_account"
+            android:title="Account"/>
 
 </menu>

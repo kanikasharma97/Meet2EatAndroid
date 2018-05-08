@@ -1,0 +1,198 @@
+<html>
+<head>
+<title>LoginActivity.java</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<style type="text/css">
+.ln { color: #999999; font-weight: normal; font-style: normal; }
+.s0 { color: rgb(0,0,128); font-weight: bold; }
+.s1 { color: rgb(0,0,0); }
+.s2 { color: rgb(0,128,0); font-weight: bold; }
+.s3 { color: rgb(128,128,128); font-style: italic; }
+.s4 { color: rgb(0,0,255); }
+</style>
+</head>
+<BODY BGCOLOR="#ffffff">
+<TABLE CELLSPACING=0 CELLPADDING=5 COLS=1 WIDTH="100%" BGCOLOR="#c0c0c0" >
+<TR><TD><CENTER>
+<FONT FACE="Arial, Helvetica" COLOR="#000000">
+LoginActivity.java</FONT>
+</center></TD></TR></TABLE>
+<pre>
+<span class="s0">package </span><span class="s1">com.example.kanikasharma.meet2eatandroid; 
+ 
+</span><span class="s0">import </span><span class="s1">android.content.Intent; 
+</span><span class="s0">import </span><span class="s1">android.content.SharedPreferences; 
+</span><span class="s0">import </span><span class="s1">android.os.AsyncTask; 
+</span><span class="s0">import </span><span class="s1">android.support.v7.app.AppCompatActivity; 
+</span><span class="s0">import </span><span class="s1">android.os.Bundle; 
+</span><span class="s0">import </span><span class="s1">android.util.JsonReader; 
+</span><span class="s0">import </span><span class="s1">android.view.View; 
+</span><span class="s0">import </span><span class="s1">android.widget.Button; 
+</span><span class="s0">import </span><span class="s1">android.widget.EditText; 
+</span><span class="s0">import </span><span class="s1">android.widget.TextView; 
+</span><span class="s0">import </span><span class="s1">java.io.*; 
+</span><span class="s0">import </span><span class="s1">java.io.IOException; 
+</span><span class="s0">import </span><span class="s1">java.lang.*; 
+</span><span class="s0">import </span><span class="s1">java.net.HttpURLConnection; 
+</span><span class="s0">import </span><span class="s1">java.util.ArrayList; 
+</span><span class="s0">import </span><span class="s1">utility.*; 
+</span><span class="s0">import </span><span class="s1">validation.Validation; 
+</span><span class="s0">import </span><span class="s1">android.os.*; 
+</span><span class="s0">import </span><span class="s1">android.content.Context; 
+</span><span class="s0">import </span><span class="s1">utility.SessionManagement; 
+ 
+ 
+ 
+</span><span class="s0">public class </span><span class="s1">LoginActivity </span><span class="s0">extends </span><span class="s1">AppCompatActivity { 
+    EditText txtEmail; 
+    EditText txtpsw; 
+    Button   button; 
+    TextView txtforgotpassword; 
+    TextView txtregister; 
+ 
+ 
+    </span><span class="s0">public static final </span><span class="s1">String MyPREFERENCES = </span><span class="s2">&quot;MyPrefs&quot; </span><span class="s1">; 
+    </span><span class="s0">public static final </span><span class="s1">String AuthToken = </span><span class="s2">&quot;AuthTokenKey&quot;</span><span class="s1">; 
+    </span><span class="s3">//public SharedPreferences sharedpreferences = getApplicationContext().getSharedPreferences(&quot;MyPref&quot;, 0);</span><span class="s1"> 
+ 
+    </span><span class="s0">final static int </span><span class="s1">SHOW_ERROR = </span><span class="s4">1</span><span class="s1">; 
+    </span><span class="s0">final </span><span class="s1">Handler uiHandler = </span><span class="s0">new </span><span class="s1">Handler () { 
+ 
+        @Override 
+        </span><span class="s0">public void </span><span class="s1">handleMessage (Message msg) { 
+            </span><span class="s0">if </span><span class="s1">(msg.what == SHOW_ERROR) { 
+                Alert.showError(LoginActivity.</span><span class="s0">this</span><span class="s1">, (String) msg.obj); 
+            } 
+            </span><span class="s0">super</span><span class="s1">.handleMessage(msg); 
+        } 
+ 
+    }; 
+    @Override 
+    </span><span class="s0">protected void </span><span class="s1">onCreate(Bundle savedInstanceState) { 
+ 
+        </span><span class="s0">super</span><span class="s1">.onCreate(savedInstanceState); 
+        setContentView(R.layout.activity_login); 
+ 
+        txtEmail=(EditText)findViewById(R.id.txt_email); 
+        txtregister=(TextView) findViewById(R.id.txt_registerhere); 
+        txtpsw=(EditText)findViewById(R.id.txt_psw); 
+        button = (Button)findViewById(R.id.btn_login); 
+        txtforgotpassword=(TextView)findViewById(R.id.txt_forgotpassword); 
+ 
+ 
+        button.setOnClickListener( 
+            </span><span class="s0">new </span><span class="s1">View.OnClickListener() { 
+                </span><span class="s0">public void </span><span class="s1">onClick (View view){ 
+ 
+                    ArrayList &lt;Boolean&gt; validationResults = </span><span class="s0">new </span><span class="s1">ArrayList &lt;Boolean&gt;(); 
+                    validationResults.add(Validation.handleEmptyField(txtEmail.getText(), txtEmail)); 
+                    validationResults.add(Validation.handleSufficientLength(txtpsw.getText(),txtpsw, </span><span class="s4">6</span><span class="s1">)); 
+ 
+                    </span><span class="s0">if</span><span class="s1">(validationResults.contains(</span><span class="s0">false</span><span class="s1">) == </span><span class="s0">false</span><span class="s1">){ 
+                        submit(); 
+                    } 
+ 
+                } 
+ 
+ 
+            } 
+ 
+        ); 
+ 
+         txtforgotpassword.setOnClickListener(</span><span class="s0">new </span><span class="s1">View.OnClickListener() { 
+             @Override 
+             </span><span class="s0">public void </span><span class="s1">onClick(View view) { 
+                 Intent myIntent = </span><span class="s0">new </span><span class="s1">Intent(LoginActivity.</span><span class="s0">this</span><span class="s1">, 
+                         forgotpassword_activity.</span><span class="s0">class</span><span class="s1">); 
+                 startActivity(myIntent); 
+             } 
+         }); 
+         txtregister.setOnClickListener(</span><span class="s0">new </span><span class="s1">View.OnClickListener() { 
+             @Override 
+             </span><span class="s0">public void </span><span class="s1">onClick(View view) { 
+                 Intent myIntent=</span><span class="s0">new </span><span class="s1">Intent(LoginActivity.</span><span class="s0">this</span><span class="s1">,MainActivity.</span><span class="s0">class</span><span class="s1">); 
+                 startActivity(myIntent); 
+             } 
+         }); 
+ 
+ 
+    } 
+ 
+ 
+    </span><span class="s0">public  void </span><span class="s1">submit () { 
+        AsyncTask.execute(</span><span class="s0">new </span><span class="s1">Runnable() { 
+            @Override 
+            </span><span class="s0">public void </span><span class="s1">run() { 
+ 
+                txtEmail = (EditText) findViewById(R.id.txt_email); 
+                txtpsw = (EditText) findViewById(R.id.txt_psw); 
+ 
+                String data = </span><span class="s2">&quot;email=&quot; </span><span class="s1">+ txtEmail.getText() + </span><span class="s2">&quot;&amp;password=&quot; </span><span class="s1">+ txtpsw.getText(); 
+ 
+                HttpURLConnection myConnection = Network.post(</span><span class="s2">&quot;/login&quot;</span><span class="s1">, data, </span><span class="s0">null</span><span class="s1">); 
+ 
+                </span><span class="s0">try </span><span class="s1">{ 
+ 
+                    InputStream responseBody = </span><span class="s0">null</span><span class="s1">; 
+                    </span><span class="s0">int </span><span class="s1">code = myConnection.getResponseCode(); 
+                    </span><span class="s0">if </span><span class="s1">(code == </span><span class="s4">200</span><span class="s1">) { 
+                        responseBody = myConnection.getInputStream(); 
+                        InputStreamReader responseBodyReader = </span><span class="s0">new </span><span class="s1">InputStreamReader(responseBody, </span><span class="s2">&quot;UTF-8&quot;</span><span class="s1">); 
+                        JsonReader jsonReader = </span><span class="s0">new </span><span class="s1">JsonReader(responseBodyReader); 
+ 
+                        jsonReader.beginObject(); 
+                        String type=</span><span class="s0">null</span><span class="s1">, authToken=</span><span class="s0">null</span><span class="s1">; 
+ 
+                        </span><span class="s0">while </span><span class="s1">(jsonReader.hasNext()) { 
+                            String key = jsonReader.nextName(); 
+                            </span><span class="s0">if </span><span class="s1">(key.equals(</span><span class="s2">&quot;type&quot;</span><span class="s1">)) { 
+                                type = jsonReader.nextString(); 
+                            } </span><span class="s0">else if </span><span class="s1">(key.equals(</span><span class="s2">&quot;authToken&quot;</span><span class="s1">)) { 
+                                authToken = jsonReader.nextString(); 
+                            } </span><span class="s0">else </span><span class="s1">{ 
+                                jsonReader.skipValue(); 
+                            } 
+                        } 
+                        SessionManagement session = </span><span class="s0">new </span><span class="s1">SessionManagement(getApplicationContext()); 
+                        session.createLoginSession(authToken, type); 
+                        Intent myIntent = </span><span class="s0">null</span><span class="s1">; 
+                        </span><span class="s0">if</span><span class="s1">(type.equals(</span><span class="s2">&quot;user&quot;</span><span class="s1">)) { 
+                            myIntent = </span><span class="s0">new </span><span class="s1">Intent(LoginActivity.</span><span class="s0">this</span><span class="s1">, 
+                                    user.</span><span class="s0">class</span><span class="s1">); 
+ 
+                        }</span><span class="s0">else if</span><span class="s1">(type.equals(</span><span class="s2">&quot;blogger&quot;</span><span class="s1">)) { 
+                            myIntent=</span><span class="s0">new </span><span class="s1">Intent(LoginActivity.</span><span class="s0">this</span><span class="s1">, 
+                                    foodblogger.</span><span class="s0">class</span><span class="s1">); 
+                        } </span><span class="s0">else if </span><span class="s1">(type.equals(</span><span class="s2">&quot;restaurant&quot;</span><span class="s1">)){ 
+                            myIntent=</span><span class="s0">new </span><span class="s1">Intent(LoginActivity.</span><span class="s0">this</span><span class="s1">, 
+                                    restaurant.</span><span class="s0">class</span><span class="s1">); 
+                        } 
+                        startActivity(myIntent); 
+ 
+                    } </span><span class="s0">else if</span><span class="s1">(code==</span><span class="s4">401</span><span class="s1">) { 
+                      Message msg = uiHandler.obtainMessage(); 
+                      msg.what = SHOW_ERROR; 
+                      msg.obj = </span><span class="s2">&quot;Username/Password is incorrect&quot;</span><span class="s1">; 
+                      uiHandler.sendMessage(msg); 
+                    } </span><span class="s0">else if </span><span class="s1">(code == </span><span class="s4">400</span><span class="s1">) { 
+                      Message msg = uiHandler.obtainMessage(); 
+                      msg.what = SHOW_ERROR; 
+                      msg.obj = </span><span class="s2">&quot;Please enter valid email address&quot;</span><span class="s1">; 
+                      uiHandler.sendMessage(msg); 
+                    } 
+                } </span><span class="s0">catch </span><span class="s1">(IOException e) { 
+                    System.out.println(e.getMessage()); 
+                } </span><span class="s0">catch </span><span class="s1">(NullPointerException e) { 
+                    System.out.println(e.getMessage()); 
+                } </span><span class="s0">finally </span><span class="s1">{ 
+                    myConnection.disconnect(); 
+ 
+                } 
+            } 
+        }); 
+ 
+        } 
+    } 
+</span></pre>
+</body>
+</html>

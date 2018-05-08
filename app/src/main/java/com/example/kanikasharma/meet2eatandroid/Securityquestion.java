@@ -30,15 +30,16 @@ public class Securityquestion extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_securityquestion);
-        final String securityquestion = getIntent().getStringExtra("securityQuestion");
+        Intent obj = getIntent();
+        final String securityquestion = obj.getStringExtra("securityQuestion");
         final TextView txtsecurityquestion = (TextView)findViewById(R.id.txt_securityquestion);
         txtsecurityquestion.setText(securityquestion);
-        final String securityanswerstring=getIntent().getStringExtra("securityQuestionAnswer");
+        final String securityanswerstring=obj.getStringExtra("securityQuestionAnswer");
         txtnewpassword=(EditText)findViewById(R.id.txt_newpsw);
         txtconfirmpassword=(EditText)findViewById(R.id.txt_confirmpsw);
         txtsecurityanswer=(EditText)findViewById(R.id.txt_secureans);
         btnsubmit=(Button)findViewById(R.id.btn_submit);
-        email = getIntent().getStringExtra("email");
+        email = obj.getStringExtra("email");
 
         btnsubmit.setOnClickListener(
                 new View.OnClickListener() {
@@ -46,11 +47,13 @@ public class Securityquestion extends AppCompatActivity {
                         ArrayList<Boolean> validationResults = new ArrayList<Boolean>();
 
                         validationResults.add(Validation.handleEmptyField(txtnewpassword.getText(), txtnewpassword));
-                        validationResults.add(Validation.handleSufficientLength(txtnewpassword.getText(), txtnewpassword, 6));
-                        validationResults.add(Validation.handleSufficientLength(txtconfirmpassword.getText(), txtconfirmpassword, 6));
+                        validationResults.add(Validation.handleSufficientLength(txtnewpassword.getText(), txtnewpassword, 6, "Password"));
+                        validationResults.add(Validation.handleSufficientLength(txtconfirmpassword.getText(), txtconfirmpassword, 6, "Confirm Password"));
                         validationResults.add(Validation.handleEmptyField(txtsecurityanswer.getText(), txtsecurityanswer));
 
                         if (txtsecurityanswer.getText().toString().equals(securityanswerstring) == false) {
+                            txtsecurityanswer.setError("Your security answer doesn't match");
+
                             validationResults.add(false);
                         }
 
@@ -76,10 +79,8 @@ public class Securityquestion extends AppCompatActivity {
             @Override
             public void run() {
 
-
-
                 String data="email=" + email + "&password=" + txtnewpassword.getText();
-                HttpURLConnection myConnection=Network.put("/password",data);
+                HttpURLConnection myConnection=Network.put("/password",data, null);
 
                 try{
                     int code=myConnection.getResponseCode();
