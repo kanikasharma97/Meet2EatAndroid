@@ -25,6 +25,8 @@ import utility.SessionManagement;
 import validation.Validation;
 import android.widget.Spinner;
 import android.widget.TimePicker;
+import java.util.*;
+import java.text.SimpleDateFormat;
 
 public class restaurant_profilee extends AppCompatActivity {
 
@@ -117,6 +119,7 @@ public class restaurant_profilee extends AppCompatActivity {
         txtseatingCapacity=(EditText)findViewById(R.id.txt_seatingcapacity);
 
 
+
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -130,9 +133,36 @@ public class restaurant_profilee extends AppCompatActivity {
                 validationResults.add(Validation.handleEmptyField(txtseatingCapacity.getText(),txtseatingCapacity));
                 validationResults.add(Validation.handleExactLength(txtcontactno.getText(),txtcontactno,10, "Contact No"));
 
+                String seatingvalue=txtseatingCapacity.getText().toString();
+                int desiredvalue=Integer.parseInt(seatingvalue);
+
+                if(desiredvalue==0){
+                    validationResults.add(false);
+                    Alert.showError(restaurant_profilee.this,"Capacity cannot be zero");
+
+                    /*Calendar calendar1 = Calendar.getInstance();
+                    SimpleDateFormat formatter1 = new SimpleDateFormat("dd/M/yyyy h:mm");
+                    String currentDate = formatter1.format(calendar1.getTime());
+
+                   int a = calendar1.get(Calendar.AM_PM);
+                   if(a == Calendar.PM){
+
+                   }*/
+
+
+                }
+
+
+                int startminutes=timePickerStartTime.getCurrentHour() * 60 + timePickerStartTime.getCurrentMinute() ;
+                int  endminutes=timePickerEndTime.getCurrentHour() * 60 + timePickerEndTime.getCurrentMinute();
+
+                if(startminutes > endminutes){
+                    validationResults.add(false);
+                    Alert.showError(restaurant_profilee.this, "start time should be less than end time");
+                }
+
                 if(validationResults.contains(false)==false){
                     update();
-
                 }
 
             }

@@ -16,8 +16,11 @@ import android.widget.TimePicker;
 
 import java.io.IOException;
 import java.net.HttpURLConnection;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.*;
 
+import utility.Alert;
 import utility.Network;
 import utility.SessionManagement;
 import validation.Validation;
@@ -59,6 +62,8 @@ public class CreateMeetup extends AppCompatActivity implements
 
         minnumber.setMaxValue(10000);
         maxnumber.setMaxValue(10000);
+        minnumber.setMinValue(1);
+        maxnumber.setMinValue(1);
         duration.setMaxValue(24);
 
 
@@ -81,6 +86,7 @@ public class CreateMeetup extends AppCompatActivity implements
         btncreate.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                Intent obj=new Intent();
 
                 ArrayList<Boolean> validationResults = new ArrayList<Boolean>();
 
@@ -88,8 +94,25 @@ public class CreateMeetup extends AppCompatActivity implements
                 validationResults.add(Validation.handleEmptyField(type.getText(), type));
                 validationResults.add(Validation.handleEmptyField(description.getText(), description));
 
+                if(minnumber.getValue() > maxnumber.getValue()){
+                    validationResults.add(false);
+                    Alert.showError(CreateMeetup.this,"Minimum capacity should be less than maximum capacity");
+                }
 
-                if (validationResults.contains(false) == false) {
+                Date strdate=null;
+                SimpleDateFormat sdf=new SimpleDateFormat("M/d/yyyy HH:mm");
+
+                try {
+                    strdate=sdf.parse(dateTime.getText().toString());
+                } catch (ParseException e) {
+                    System.out.println(e.getMessage());
+                }
+                if(strdate.before(new Date())){
+                    validationResults.add(false);
+                    Alert.showError(CreateMeetup.this,"Meetup cannot be created on past dates");
+                }
+
+             if (validationResults.contains(false) == false) {
 
                     submit();
                 }

@@ -137,10 +137,9 @@
         android:id="@+id/textView30"
         android:layout_width="300dp"
         android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/txt_socialprofile"
-        android:layout_alignStart="@+id/txt_socialprofile"
+        android:layout_alignLeft="@+id/txt_experience"
+        android:layout_alignStart="@+id/txt_experience"
         android:layout_below="@+id/txt_experience"
-        android:layout_marginTop="14dp"
         android:text="Social Profile"
         android:textColor="@color/black" />
 
@@ -149,8 +148,8 @@
         android:id="@+id/txt_socialprofile"
         android:layout_width="300dp"
         android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/txt_experience"
-        android:layout_alignStart="@+id/txt_experience"
+        android:layout_alignLeft="@+id/textView30"
+        android:layout_alignStart="@+id/textView30"
         android:layout_below="@+id/textView30"
         android:layout_gravity="center_horizontal"
         android:textColorHighlight="@color/black" />
@@ -163,7 +162,6 @@
         android:layout_alignLeft="@+id/txt_socialprofile"
         android:layout_alignStart="@+id/txt_socialprofile"
         android:layout_below="@+id/txt_socialprofile"
-        android:layout_marginTop="14dp"
         android:text="Address"
         android:textColor="@color/black" />
 
@@ -188,7 +186,7 @@
         android:layout_gravity="center_horizontal"
         android:layout_marginEnd="44dp"
         android:layout_marginRight="44dp"
-        android:layout_marginTop="21dp"
+        android:layout_marginTop="14dp"
         android:background="@color/darkorange"
         android:paddingBottom="8dp"
         android:paddingLeft="8dp"

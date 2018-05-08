@@ -29,12 +29,16 @@
         <activity android:name=".Homescreen_activity">
 
 
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="android.intent.category.LAUNCHER" />
 
-            </intent-filter>
+              <intent-filter>                                                                  
+                              <action android:name="android.intent.action.MAIN" />             
+                                                                                               
+                              <category android:name="android.intent.category.LAUNCHER" />     
+                                                                                               
+                          </intent-filter>                                                     
+                                                                                               
+                                                                                               
 
 
 
@@ -48,9 +52,31 @@
 
 
 
+
+
+
+
+
+
         </activity>
 
         <activity android:name=".restaurant_profilee" >
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
         </activity>
@@ -92,7 +118,15 @@
 
 
         </activity>
-        <activity android:name=".meetupdetails" />
+        <activity android:name=".meetupdetails" >
+
+
+
+        </activity>
+
+
+
+
         <activity android:name=".Meetup_update"></activity>
     </application>
 

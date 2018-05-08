@@ -10,7 +10,7 @@ import java.net.URL;
  */
 
 public class Network {
-    public static final String hostAddress = "http://10.0.2.2:9000";
+    public static final String hostAddress = "http://192.168.0.3:9000";
 
     public static HttpURLConnection post (String url, String data, String authToken) {
         HttpURLConnection myConnection = null;

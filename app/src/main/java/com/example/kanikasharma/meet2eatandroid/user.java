@@ -66,6 +66,7 @@ public class user extends AppCompatActivity {
                             Alert.showError(user.this, "Please update your profile");
                             return false;
                         }
+
                         myIntent=new Intent(user.this,meetup_list.class);
                         startActivity(myIntent);
                         return true;

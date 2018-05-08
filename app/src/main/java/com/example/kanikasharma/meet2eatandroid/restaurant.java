@@ -74,6 +74,7 @@ public class restaurant extends AppCompatActivity {
                 return true;
             }
         });
+        fetch();
     }
 
 

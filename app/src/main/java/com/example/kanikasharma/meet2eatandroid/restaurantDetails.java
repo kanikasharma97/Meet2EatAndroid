@@ -32,12 +32,17 @@ public class restaurantDetails extends AppCompatActivity {
         availability = (TextView)findViewById(R.id.txt_availability);
 
 
+
+
+
         boolean weekday = obj.getExtras().getBoolean("availabilityWeekday");
         boolean weekend = obj.getExtras().getBoolean("availabilityWeekend");
         int startTime=obj.getExtras().getInt("startTime");
         int endtime=obj.getExtras().getInt("endTime");
         int capacityVal = obj.getExtras().getInt("seatingCapacity");
         final int uidvalue=obj.getExtras().getInt("uid");
+
+
 
 
 
@@ -48,6 +53,7 @@ public class restaurantDetails extends AppCompatActivity {
         website.setText(obj.getStringExtra("website"));
         capacity.setText(String.valueOf(capacityVal));
         address.setText(obj.getStringExtra("address"));
+
 
         FloatingActionButton add=findViewById(R.id.btn_add);
         add.setOnClickListener(new View.OnClickListener() {

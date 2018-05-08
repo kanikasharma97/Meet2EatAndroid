@@ -55,13 +55,14 @@
         android:layout_marginTop="320dp"
         android:id="@+id/view" />
 
+
     <TextView
         android:id="@+id/textView22"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_above="@+id/txt_timings"
-        android:layout_alignLeft="@+id/txt_restaurantName"
-        android:layout_alignStart="@+id/txt_restaurantName"
+        android:layout_alignEnd="@+id/txt_address"
+        android:layout_alignRight="@+id/txt_address"
         android:text="Timings"
         android:textColor="@color/black" />
 
@@ -148,9 +149,10 @@
         android:id="@+id/textView23"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignBottom="@+id/btn_add"
         android:layout_alignLeft="@+id/txt_website"
         android:layout_alignStart="@+id/txt_website"
+        android:layout_below="@+id/txt_website"
+        android:layout_marginTop="14dp"
         android:text="Contact No"
         android:textColor="@color/black" />
 
@@ -161,8 +163,7 @@
         android:layout_alignLeft="@+id/textView23"
         android:layout_alignStart="@+id/textView23"
         android:layout_below="@+id/textView23"
-        android:text="Contact No"
-        />
+        android:text="Contact No" />
 
 
     <TextView
@@ -189,12 +190,13 @@
         android:id="@+id/btn_add"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
         android:layout_alignParentEnd="true"
         android:layout_alignParentRight="true"
-        android:layout_alignTop="@+id/txt_website"
         android:layout_gravity="end|bottom"
-        android:layout_marginEnd="27dp"
-        android:layout_marginRight="27dp"
+        android:layout_marginBottom="25dp"
+        android:layout_marginEnd="12dp"
+        android:layout_marginRight="12dp"
         android:src="@drawable/ic_add"
         app:backgroundTint="@color/Tomato"
         app:fabSize="normal" />

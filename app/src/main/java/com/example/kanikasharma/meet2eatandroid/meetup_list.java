@@ -44,10 +44,15 @@ public class meetup_list extends AppCompatActivity {
     final Handler uiHandler=new Handler(){
         public void handleMessage(Message msg){
             if(msg.what==SHOW_DETAILS){
-                mappings = (ArrayList <MeetupMapping>)msg.obj;
-                meetup_list.MeetupAdapter adapter = new MeetupAdapter(meetup_list.this, mappings);
 
-                listView.setAdapter(adapter);
+                mappings = (ArrayList <MeetupMapping>)msg.obj;
+                if (mappings.size() == 0) {
+                    Alert.showError(meetup_list.this, "There are no meetups to show.");
+                } else {
+                    meetup_list.MeetupAdapter adapter = new MeetupAdapter(meetup_list.this, mappings);
+                    listView.setAdapter(adapter);
+                }
+
             }
         }
 

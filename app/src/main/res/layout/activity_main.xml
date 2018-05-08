@@ -21,7 +21,8 @@
                     android:layout_height="107dp"
                     android:layout_gravity="center_horizontal"
                     android:contentDescription="@string/logo"
-                    app:srcCompat="@drawable/logo"></ImageView>
+                    app:srcCompat="@drawable/logo"
+                   ></ImageView>
 
                 <EditText
                     android:id="@+id/txt_email"
@@ -29,7 +30,8 @@
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_horizontal"
                     android:layout_marginTop="10dp"
-                    android:hint="Email Address" />
+                    android:hint="Email Address"
+                    android:inputType="textEmailAddress" />
 
                 <EditText
                     android:id="@+id/txt_psw"

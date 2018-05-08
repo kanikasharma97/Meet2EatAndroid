@@ -16,7 +16,10 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.HashMap;
 
 import utility.Alert;
@@ -96,8 +99,25 @@ public class Meetup_update extends AppCompatActivity {
                 validationResults.add(Validation.handleEmptyField(minPeople.getText(),minPeople));
                 validationResults.add(Validation.handleEmptyField(maxPeople.getText(), maxPeople));
 
+                Date strdate=null;
+                SimpleDateFormat sdf=new SimpleDateFormat("M/d/yyyy HH:mm");
+
+                try {
+                    strdate=sdf.parse(timings.getText().toString());
+                } catch (ParseException e) {
+                    System.out.println(e.getMessage());
+                }
+                if(strdate.before(new Date())){
+                    validationResults.add(false);
+                    Alert.showError(Meetup_update.this,"Meetup cannot be created on past dates");
+                }
+
+
+
+
                 if(validationResults.contains(false)==false){
                     update();
+
 
                 }
 
